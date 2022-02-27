@@ -10,10 +10,10 @@ from time import sleep
 
 
 # Credentials
-apiKey = 'M98TaliIufzswaRsqfzoVlv35'
-apiKeySecret = 'IpwkM1hXRf2SMV0xAwAVCsPYbDRVNR3PwS5oAjUixyNMzoF70L'
-accessToken = '1495844653525987330-cGvFkLVC61uxSJgFgeSQQAXDlpJ0VU'
-accessTokenSecret = 'wM55VSRUGNjSfsZhyprfB0uZR1VHKlVSnwlp5TjHwWc5D'
+apiKey = API_KEY
+apiKeySecret = API_KEY_SECRET
+accessToken = ACCESS_TOKEN
+accessTokenSecret = ACCESS_TOKEN_SECRET
 
 
 # Authentification
