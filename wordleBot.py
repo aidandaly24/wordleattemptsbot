@@ -38,8 +38,7 @@ wordleNum = str(247 + delta)
 
 # Seaerch Tweets
 keyWord = 'Wordle ' + wordleNum + '-filter:retweets'
-limit = 18000
-
+limit = 17000
 tweets = tweepy.Cursor(api.search_tweets, q=keyWord,
                        count=100, tweet_mode='extended').items(limit)
 
@@ -93,13 +92,8 @@ for i in range(len(data)):
 
 # Adds Data and Percentages to file
 hour = (currentTime.hour)
-if hour <= 5:
-    time = "1AM"
-elif hour <= 12:
-    time = "9AM"
-else:
-    time = "9PM"
-f = open("/Users/aidandaly/Desktop/PersonalCode/TwitterBot/data.txt", "w")
+time = "12PM"
+f = open("/Users/aidandaly/Desktop/PersonalCode/TwitterBot/data.txt", "a")
 dataString = f"\n{wordleNum} Data {time}: "
 f.write(dataString)
 for i in range(len(data)):
@@ -150,7 +144,7 @@ plt.title("Wordle Number Attempt Percentages")
 plt.xlabel("Attempt Number")
 plt.ylabel("Percent")
 plt.savefig(
-    '/Users/aidandaly/Desktop/PersonalCode/TwitterBot/wordle' + wordleNum + '.jpg')
+    '/Users/aidandaly/Desktop/PersonalCode/TwitterBot/StatsPics/wordle' + wordleNum + '.jpg')
 
 
 # Creates and sends out tweet
@@ -159,6 +153,6 @@ tweetSend = f"Wordle {wordleNum} X Stats ({time})\n\n{emojiAttempt[0]}Attempt 1:
 imagePath = 'wordle' + wordleNum + '.jpg'
 print(tweetSend)
 mediaImage = api.media_upload(
-    filename='/Users/aidandaly/Desktop/PersonalCode/TwitterBot/wordle' + wordleNum + '.jpg')
+    filename='/Users/aidandaly/Desktop/PersonalCode/TwitterBot/StatsPics/wordle' + wordleNum + '.jpg')
 mediaImages = [mediaImage.media_id_string]
 api.update_status(status=tweetSend, media_ids=mediaImages)
